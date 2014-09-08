@@ -1,3 +1,5 @@
+## Luz Eunice
+
 ##download zip in temporary file
 file="https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 temp01 <- tempfile()
@@ -14,7 +16,11 @@ dataset<-read.table(temp02,header=TRUE,sep=";")
   data$Time<- as.POSIXlt(paste(data$Date, data$Time),tz="GMT", format='%d/%m/%Y %H:%M:%S')
   data[,3]<-as.numeric(as.character(data[,3]))
 
-##save plotted graph to png file.
+## Graph 1
+plot(data[,2],data[,3],type="l",xlab="",ylab="Global Active Power (kilowatts)")
+
+
+##save plotted graph in png file
 png(file="plot2.png")
-  plot(data[,2],data[,3],type="l",xlab="",ylab="Global Active Power (kilowatts)")
+plot(data[,2],data[,3],type="l",xlab="",ylab="Global Active Power (kilowatts)")
 dev.off()

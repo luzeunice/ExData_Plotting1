@@ -1,3 +1,5 @@
+##Luz Eunice
+
 ##download zip in temporary file
 file="https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 temp01 <- tempfile()
@@ -17,6 +19,13 @@ data<-dataset[lines,]
   data[,7]<-as.numeric(as.character(data[,7]))
   data[,8]<-as.numeric(as.character(data[,8]))
   data[,9]<-as.numeric(as.character(data[,9]))
+
+## Graph 1 
+plot(data$Time,data[,7],type="l",xlab="",ylab="Energy sub metering")
+points(data$Time,data[,8],type="l",xlab="",ylab="Energy sub metering",col="red")
+points(data$Time,data[,9],type="l",xlab="",ylab="Energy sub metering",col="blue")
+legend("topright",cex=0.7,lty=1,legend=c(names(data[7]),names(data[8]),names(data[9])), col=c("black","blue","red"))
+
 
 ##save plot to png file
 png(file="plot3.png")
